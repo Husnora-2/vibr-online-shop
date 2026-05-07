@@ -867,6 +867,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 export type Product = {
   id: string;
   slug: string;
@@ -890,6 +900,7 @@ const COLORS = {
   black:  { name: "Black",       hex: "#000000" },
   blue:   { name: "Deep Blue",   hex: "#00008B" },
   white:  { name: "Pure White",  hex: "#FFFFFF" },
+  green:  { name: "Emerald Green", hex: "#2E8B57" }, // Yashil rang qo'shildi
 };
 
 export const collections = [
@@ -916,7 +927,6 @@ const createProduct = (p: Omit<Product, "image" | "colors" | "currency"> & { var
   return { ...p, currency: "€", image: colors[0].image, colors };
 };
 
-// Bu funksiya ProductPage.tsx uchun juda muhim
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
 
 export const products: Product[] = [
@@ -1017,6 +1027,79 @@ export const products: Product[] = [
     variants: [
       { color: "gold", url: "/products/oltin-braslet.png" }
     ]
+  }),
+
+  // --- WATCHES ---
+  createProduct({
+    id: "w1",
+    slug: "automatique-aurelia",
+    name: "Automatique Aurélie",
+    category: "watches",
+    collection: "Classique",
+    price: 8500,
+    metal: "Steel",
+    stone: "None",
+    description: "A refined automatic timepiece reflecting the heritage of Maison Aurélie.",
+    details: ["Swiss Made", "40mm Case", "Sapphire Crystal"],
+    variants: [
+      { color: "gold", url: "/products/automatique-aurelia-gold.jpg" },
+      { color: "silver", url: "/products/automatique-aurelia-silver.jpg" },
+      { color: "black", url: "/products/automatique-aurelia-black.jpg" }
+    ]
+  }),
+  createProduct({
+    id: "w2",
+    slug: "chronographe-vendome",
+    name: "Chronographe Vendôme",
+    category: "watches",
+    collection: "Classique",
+    price: 12500,
+    metal: "Steel",
+    stone: "None",
+    description: "Precision meets elegance in this iconic chronograph.",
+    details: ["Chronograph Function", "Tachymeter Scale", "Water Resistant 5ATM"],
+    variants: [
+      { color: "black", url: "/products/chronographe-vendome-black.jpg" },
+      { color: "blue", url: "/products/chronographe-vendome-blue.jpg" },
+      { color: "white", url: "/products/chronographe-vendome-white.jpg" },
+      { color: "green", url: "/products/chronographe-vendome-green.jpg" } // Endi xato bermaydi!
+    ]
+  }),
+  createProduct({
+    id: "w3",
+    slug: "lady-aurore",
+    name: "Lady Aurore",
+    category: "watches",
+    collection: "Aurore",
+    price: 6200,
+    metal: "18K Gold",
+    stone: "Diamonds",
+    description: "A delicate timepiece adorned with diamonds for daily luxury.",
+    details: ["Diamond Bezel", "Mother of Pearl Dial", "28mm Case"],
+    variants: [
+      { color: "gold", url: "/products/lady-aurore-gold.jpg" },
+      { color: "silver", url: "/products/lady-aurore-silver.jpg" },
+      { color: "rose", url: "/products/lady-aurore-rose.jpg" },
+      { color: "white", url: "/products/lady-aurore-white.jpg" }
+    ]
+  }),
+  createProduct({
+    id: "w4",
+    slug: "tourbillon-geneve",
+    name: "Tourbillon Genève",
+    category: "watches",
+    collection: "Classique",
+    price: 45000,
+    metal: "Rose Gold",
+    stone: "None",
+    description: "The pinnacle of horological complication.",
+    details: ["Manual Wind", "Exposed Tourbillon", "Alligator Strap"],
+    variants: [
+      { color: "gold", url: "/products/tourbillon-geneve-gold.jpg" },
+      { color: "silver", url: "/products/tourbillon-geneve-silver.jpg" },
+      { color: "black", url: "/products/tourbillon-geneve-black.jpg" },
+      { color: "white", url: "/products/tourbillon-geneve-white.jpg" }
+    ]
   })
 ];
 
@@ -1025,10 +1108,216 @@ export const journal = [
     id: "j1",
     title: "The Art of Jewelry Care",
     date: "May 2024",
-    excerpt: "Discover our expert secrets for maintaining the lifelong brilliance of your Maison Aurélie pieces.",
+    excerpt: "Discover our expert secrets for maintaining brilliance.",
     image: "/products/image.png"
   }
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export type Product = {
+//   id: string;
+//   slug: string;
+//   name: string;
+//   category: "rings" | "necklaces" | "earrings" | "bracelets" | "watches";
+//   collection: string;
+//   price: number;
+//   currency: "€";
+//   metal: string;
+//   stone: string;
+//   description: string;
+//   details: string[];
+//   image: string;
+//   colors: { name: string; hex: string; image: string }[];
+// };
+
+// const COLORS = {
+//   gold:   { name: "Gold",        hex: "#D4AF37" },
+//   silver: { name: "Silver",      hex: "#C0C0C0" },
+//   rose:   { name: "Rose Gold",   hex: "#E5B09E" },
+//   black:  { name: "Black",       hex: "#000000" },
+//   blue:   { name: "Deep Blue",   hex: "#00008B" },
+//   white:  { name: "Pure White",  hex: "#FFFFFF" },
+// };
+
+// export const collections = [
+//   { 
+//     id: "classique", 
+//     name: "Classique", 
+//     description: "The heritage of Maison Aurélie, where timeless elegance meets exceptional craftsmanship.",
+//     image: "/products/briliant-uzukoltinrang.png" 
+//   },
+//   { 
+//     id: "aurore", 
+//     name: "Aurore", 
+//     description: "A celebration of light and new beginnings, featuring modern designs for daily luxury.",
+//     image: "/products/oltin-braslet.png" 
+//   }
+// ];
+
+// const createProduct = (p: Omit<Product, "image" | "colors" | "currency"> & { variants: { color: keyof typeof COLORS; url: string }[] }): Product => {
+//   const colors = p.variants.map((v) => ({
+//     name: COLORS[v.color].name,
+//     hex: COLORS[v.color].hex,
+//     image: v.url
+//   }));
+//   return { ...p, currency: "€", image: colors[0].image, colors };
+// };
+
+// // Bu funksiya ProductPage.tsx uchun juda muhim
+// export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
+
+// export const products: Product[] = [
+//   // --- RINGS ---
+//   createProduct({
+//     id: "r1",
+//     slug: "diamond-solitaire",
+//     name: "Diamond Solitaire Ring",
+//     category: "rings",
+//     collection: "Classique",
+//     price: 4500,
+//     metal: "18K Gold",
+//     stone: "Diamond",
+//     description: "A timeless symbol of love and commitment, featuring a brilliant-cut diamond.",
+//     details: ["GIA Certified Diamond", "Hand-polished 18K Gold", "Signature internal engraving"],
+//     variants: [
+//       { color: "gold", url: "/products/briliant-uzukoltinrang.png" },
+//       { color: "silver", url: "/products/briliant-uzukkulurang.png" }
+//     ]
+//   }),
+//   createProduct({
+//     id: "r2",
+//     slug: "minimalist-gold-band",
+//     name: "Minimalist Gold Band",
+//     category: "rings",
+//     collection: "Aurore",
+//     price: 900,
+//     metal: "14K Gold",
+//     stone: "None",
+//     description: "Sleek and modern daily elegance for the contemporary individual.",
+//     details: ["Solid 14K Gold", "Comfort-fit interior", "Stackable design"],
+//     variants: [
+//       { color: "gold", url: "/products/minimalist-uzuk-odam-rang.png" }
+//     ]
+//   }),
+
+//   // --- EARRINGS ---
+//   createProduct({
+//     id: "e1",
+//     slug: "purple-gem-earrings",
+//     name: "Purple Gem Earrings",
+//     category: "earrings",
+//     collection: "Aurore",
+//     price: 2100,
+//     metal: "Silver",
+//     stone: "Amethyst",
+//     description: "Stunning violet stones set in a delicate polished silver frame.",
+//     details: ["Natural Amethyst", "Sterling Silver 925", "Butterfly clasp"],
+//     variants: [
+//       { color: "silver", url: "/products/zirak-binafsha.png" }
+//     ]
+//   }),
+//   createProduct({
+//     id: "e2",
+//     slug: "classic-gold-earrings",
+//     name: "Classic Gold Earrings",
+//     category: "earrings",
+//     collection: "Classique",
+//     price: 1500,
+//     metal: "14K Gold",
+//     stone: "None",
+//     description: "Pure gold elegance that captures light with every movement.",
+//     details: ["14K Yellow Gold", "Hand-crafted in Geneva", "Weight: 4.2g"],
+//     variants: [
+//       { color: "gold", url: "/products/zirak-oltin.png" }
+//     ]
+//   }),
+
+//   // --- NECKLACES ---
+//   createProduct({
+//     id: "n1",
+//     slug: "pearl-essence",
+//     name: "Pearl Essence Necklace",
+//     category: "necklaces",
+//     collection: "Classique",
+//     price: 1800,
+//     metal: "Gold",
+//     stone: "Pearl",
+//     description: "Lustrous sea pearls hand-picked for their exceptional shine.",
+//     details: ["AAA Quality Pearls", "18K Gold Chain", "Adjustable length: 40-45cm"],
+//     variants: [
+//       { color: "white", url: "/products/marvarid-marjon-oq-rang.png" }
+//     ]
+//   }),
+
+//   // --- BRACELETS ---
+//   createProduct({
+//     id: "b1",
+//     slug: "luxury-gold-bangle",
+//     name: "Luxury Gold Bangle",
+//     category: "bracelets",
+//     collection: "Aurore",
+//     price: 3200,
+//     metal: "18K Gold",
+//     stone: "Diamond",
+//     description: "Intricate patterns in solid 18K gold, accented with hidden diamonds.",
+//     details: ["Solid 18K Yellow Gold", "Hidden security clasp", "Diamond weight: 0.15ct"],
+//     variants: [
+//       { color: "gold", url: "/products/oltin-braslet.png" }
+//     ]
+//   })
+// ];
+
+
+
+
+// export const journal = [
+//   {
+//     id: "j1",
+//     title: "The Art of Jewelry Care",
+//     date: "May 2024",
+//     excerpt: "Discover our expert secrets for maintaining the lifelong brilliance of your Maison Aurélie pieces.",
+//     image: "/products/image.png"
+//   }
+// ];
 
 
 

@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   MAISON AURÉLIE — Light Luxury Design System
+   Ivory base · warm gold · editorial serif
+   All colors HSL.
+   ============================================ */
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;            /* ivory cream */
+    --foreground: 25 18% 14%;            /* deep espresso */
+
+    --card: 36 40% 99%;
+    --card-foreground: 25 18% 14%;
+
+    --popover: 36 40% 99%;
+    --popover-foreground: 25 18% 14%;
+
+    --primary: 25 18% 14%;               /* espresso ink */
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 36 22% 91%;             /* warm sand */
+    --secondary-foreground: 25 18% 14%;
+
+    --muted: 36 22% 93%;
+    --muted-foreground: 25 10% 38%;
+
+    --accent: 36 55% 55%;                /* champagne gold */
+    --accent-foreground: 25 18% 14%;
+
+    --gold: 36 60% 52%;
+    --gold-soft: 38 65% 78%;
+    --gold-deep: 32 45% 38%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 36 33% 97%;
+
+    --border: 30 18% 86%;
+    --input: 30 18% 86%;
+    --ring: 36 55% 55%;
+
+    --radius: 0.25rem;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(36 60% 62%), hsl(32 45% 42%));
+    --gradient-ivory: linear-gradient(180deg, hsl(36 33% 98%), hsl(36 22% 92%));
+    --gradient-overlay: linear-gradient(180deg, hsl(25 18% 14% / 0), hsl(25 18% 14% / 0.55));
+
+    /* Shadows */
+    --shadow-soft: 0 1px 2px hsl(25 18% 14% / 0.04), 0 8px 24px hsl(25 18% 14% / 0.06);
+    --shadow-elev: 0 2px 4px hsl(25 18% 14% / 0.06), 0 24px 48px -12px hsl(25 18% 14% / 0.18);
+    --shadow-gold: 0 8px 32px -8px hsl(36 60% 52% / 0.45);
+
+    /* Motion */
+    --ease-silk: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --transition-smooth: 600ms var(--ease-silk);
+
+    --sidebar-background: 36 33% 97%;
+    --sidebar-foreground: 25 18% 14%;
+    --sidebar-primary: 36 55% 55%;
+    --sidebar-primary-foreground: 36 33% 97%;
+    --sidebar-accent: 36 22% 91%;
+    --sidebar-accent-foreground: 25 18% 14%;
+    --sidebar-border: 30 18% 86%;
+    --sidebar-ring: 36 55% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    background: hsl(var(--gold) / 0.3);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .font-serif { font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif; }
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 300; }
+
+  .tracking-luxury { letter-spacing: 0.32em; }
+  .tracking-editorial { letter-spacing: 0.18em; }
+
+  .text-gold { color: hsl(var(--gold)); }
+  .bg-gold { background-color: hsl(var(--gold)); }
+  .border-gold { border-color: hsl(var(--gold)); }
+
+  .bg-gradient-gold { background: var(--gradient-gold); }
+  .bg-gradient-ivory { background: var(--gradient-ivory); }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-elev { box-shadow: var(--shadow-elev); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+
+  .transition-silk { transition: all var(--transition-smooth); }
+
+  .gold-line {
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+    height: 1px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: reveal 1.1s var(--ease-silk) forwards;
+  }
+  .reveal-delay-1 { animation-delay: 120ms; }
+  .reveal-delay-2 { animation-delay: 240ms; }
+  .reveal-delay-3 { animation-delay: 360ms; }
+  .reveal-delay-4 { animation-delay: 480ms; }
+
+  .marquee {
+    animation: marquee 38s linear infinite;
+  }
+
+  .image-hover {
+    overflow: hidden;
+  }
+  .image-hover img {
+    transition: transform 1200ms var(--ease-silk), filter 600ms ease;
+  }
+  .image-hover:hover img {
+    transform: scale(1.06);
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 500ms var(--ease-silk);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

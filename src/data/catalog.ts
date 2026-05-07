@@ -518,39 +518,206 @@ const createProduct = (
   return { ...p, currency: "$", image: colors[0].image, colors };
 };
 
+// export const products: Product[] = [
+//   // --- RINGS ---
+//   createProduct({
+//     id: "r1", slug: "diamond-engagement", name: "Diamond Solitaire Ring", category: "rings", collection: "Classique", price: 4500, metal: "18K Gold", stone: "Diamond",
+//     description: "A timeless symbol of love and commitment, featuring a brilliant-cut diamond.", details: ["GIA Certified", "High Polish Finish"],
+//     variants: [
+//       { color: "gold", url: "/src/assets/products/briliant uzukoltinrang.png" },
+//       { color: "silver", url: "/src/assets/products/briliant uzukkulurang.png" }
+//     ]
+//   }),
+//   createProduct({
+//     id: "r2", slug: "minimalist-band", name: "Minimalist Gold Band", category: "rings", collection: "Aurore", price: 900, metal: "14K Gold", stone: "None",
+//     description: "Sleek and modern, this band is designed for effortless daily elegance.", details: ["Lightweight", "Comfort Fit"],
+//     variants: [{ color: "gold", url: "/src/assets/products/minimalist uzukodam rang.png" }]
+//   }),
+//   createProduct({
+//     id: "r3", slug: "rose-petal-ring", name: "Rose Petal Ring", category: "rings", collection: "Aurore", price: 1250, metal: "Rose Gold", stone: "None",
+//     description: "Delicate design inspired by the soft curves of a rose petal.", details: ["Exquisite Craftsmanship"],
+//     variants: [{ color: "rose", url: "/src/assets/products/puwti izuk.png" }]
+//   }),
+
+//   // --- NECKLACES ---
+//   createProduct({
+//     id: "n1", slug: "pearl-essence-necklace", name: "Pearl Essence Necklace", category: "necklaces", collection: "Classique", price: 1800, metal: "Gold", stone: "Pearl",
+//     description: "Lustrous sea pearls hand-selected for their exceptional brilliance.", details: ["Natural Pearls", "Gold Chain"],
+//     variants: [{ color: "white", url: "/src/assets/products/marvarid marjon oq rang.png" }]
+//   }),
+
+//   // --- BRACELETS ---
+//   createProduct({
+//     id: "b1", slug: "luxury-gold-bangle", name: "Luxury Gold Bangle", category: "bracelets", collection: "Aurore", price: 3200, metal: "18K Gold", stone: "Diamond",
+//     description: "A statement piece featuring intricate patterns and shimmering stones.", details: ["Hand-Finished", "Security Clasp"],
+//     variants: [{ color: "gold", url: "/src/assets/products/oltin braslet.png" }]
+//   }),
+
+//   // --- WATCHES (LADY AURORE) ---
+//   createProduct({
+//     id: "w1", slug: "lady-aurore-watch", name: "Lady Aurore Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Premium Steel", stone: "Sapphire",
+//     description: "Sophisticated timepiece designed for the modern woman.", details: ["Swiss Movement", "Water Resistant"],
+//     variants: [
+//       { color: "gold", url: "/src/assets/products/lady-aurore-gold.jpg" },
+//       { color: "silver", url: "/src/assets/products/lady-aurore-white.jpg" },
+//       { color: "rose", url: "/src/assets/products/lady-aurore-rose.jpg" },
+//       { color: "black", url: "/src/assets/products/lady-aurore-black.jpg" }
+//     ]
+//   }),
+
+//   // --- WATCHES (SKELETON IMPERIAL) ---
+//   createProduct({
+//     id: "w2", slug: "skeleton-imperial", name: "Skeleton Imperial", category: "watches", collection: "Classique", price: 7200, metal: "Titanium", stone: "Sapphire",
+//     description: "A masterpiece of mechanical engineering showing the inner beauty of time.", details: ["Automatic Caliber", "Exposed Gears"],
+//     variants: [
+//       { color: "gold", url: "/src/assets/products/skeleton-imperial-gold.jpg" },
+//       { color: "silver", url: "/src/assets/products/skeleton-imperial-silver.jpg" },
+//       { color: "rose", url: "/src/assets/products/skeleton-imperial-rose.jpg" },
+//       { color: "black", url: "/src/assets/products/skeleton-imperial-black.jpg" }
+//     ]
+//   }),
+
+//   // --- WATCHES (AUTOMATIQUE AURELIA) ---
+//   createProduct({
+//     id: "w3", slug: "automatique-aurelia", name: "Automatique Aurelia", category: "watches", collection: "Aurore", price: 4900, metal: "Gold Plated", stone: "None",
+//     description: "Classic design meets modern automatic precision.", details: ["Self-Winding", "Leather Strap Compatible"],
+//     variants: [
+//       { color: "gold", url: "/src/assets/products/automatique-aurelia-gold.jpg" },
+//       { color: "silver", url: "/src/assets/products/automatique-aurelia-silver.jpg" },
+//       { color: "black", url: "/src/assets/products/automatique-aurelia-black.jpg" },
+//       { color: "blue", url: "/src/assets/products/automatique-aurelia-blue.jpg" }
+//     ]
+//   })
+// ];
+
+// export const collections = [
+//   { slug: "aurore", name: "Aurore", tagline: "Golden Moments of Radiance" },
+//   { slug: "classique", name: "Classique", tagline: "Timeless Heritage" }
+// ];
+
+// export const journal = [
+//   {
+//     id: "j1",
+//     title: "The Art of Jewelry Care",
+//     date: "May 2024",
+//     excerpt: "Discover how to maintain the eternal shine of your precious pieces.",
+//     image: "/src/assets/products/craftsmanship.jpg"
+//   }
+// ];
+
+// export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const products: Product[] = [
   // --- RINGS ---
   createProduct({
     id: "r1", slug: "diamond-engagement", name: "Diamond Solitaire Ring", category: "rings", collection: "Classique", price: 4500, metal: "18K Gold", stone: "Diamond",
     description: "A timeless symbol of love and commitment, featuring a brilliant-cut diamond.", details: ["GIA Certified", "High Polish Finish"],
     variants: [
-      { color: "gold", url: "/src/assets/products/briliant uzukoltinrang.png" },
-      { color: "silver", url: "/src/assets/products/briliant uzukkulurang.png" }
+      { color: "gold", url: "/products/briliant uzukoltinrang.png" },
+      { color: "silver", url: "/products/briliant uzukkulurang.png" }
     ]
   }),
   createProduct({
     id: "r2", slug: "minimalist-band", name: "Minimalist Gold Band", category: "rings", collection: "Aurore", price: 900, metal: "14K Gold", stone: "None",
     description: "Sleek and modern, this band is designed for effortless daily elegance.", details: ["Lightweight", "Comfort Fit"],
-    variants: [{ color: "gold", url: "/src/assets/products/minimalist uzukodam rang.png" }]
+    variants: [{ color: "gold", url: "/products/minimalist uzukodam rang.png" }]
   }),
   createProduct({
     id: "r3", slug: "rose-petal-ring", name: "Rose Petal Ring", category: "rings", collection: "Aurore", price: 1250, metal: "Rose Gold", stone: "None",
     description: "Delicate design inspired by the soft curves of a rose petal.", details: ["Exquisite Craftsmanship"],
-    variants: [{ color: "rose", url: "/src/assets/products/puwti izuk.png" }]
+    variants: [{ color: "rose", url: "/products/puwti izuk.png" }]
   }),
 
   // --- NECKLACES ---
   createProduct({
     id: "n1", slug: "pearl-essence-necklace", name: "Pearl Essence Necklace", category: "necklaces", collection: "Classique", price: 1800, metal: "Gold", stone: "Pearl",
     description: "Lustrous sea pearls hand-selected for their exceptional brilliance.", details: ["Natural Pearls", "Gold Chain"],
-    variants: [{ color: "white", url: "/src/assets/products/marvarid marjon oq rang.png" }]
+    variants: [{ color: "white", url: "/products/marvarid marjon oq rang.png" }]
   }),
 
   // --- BRACELETS ---
   createProduct({
     id: "b1", slug: "luxury-gold-bangle", name: "Luxury Gold Bangle", category: "bracelets", collection: "Aurore", price: 3200, metal: "18K Gold", stone: "Diamond",
     description: "A statement piece featuring intricate patterns and shimmering stones.", details: ["Hand-Finished", "Security Clasp"],
-    variants: [{ color: "gold", url: "/src/assets/products/oltin braslet.png" }]
+    variants: [{ color: "gold", url: "/products/oltin braslet.png" }]
   }),
 
   // --- WATCHES (LADY AURORE) ---
@@ -558,10 +725,10 @@ export const products: Product[] = [
     id: "w1", slug: "lady-aurore-watch", name: "Lady Aurore Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Premium Steel", stone: "Sapphire",
     description: "Sophisticated timepiece designed for the modern woman.", details: ["Swiss Movement", "Water Resistant"],
     variants: [
-      { color: "gold", url: "/src/assets/products/lady-aurore-gold.jpg" },
-      { color: "silver", url: "/src/assets/products/lady-aurore-white.jpg" },
-      { color: "rose", url: "/src/assets/products/lady-aurore-rose.jpg" },
-      { color: "black", url: "/src/assets/products/lady-aurore-black.jpg" }
+      { color: "gold", url: "/products/lady-aurore-gold.jpg" },
+      { color: "silver", url: "/products/lady-aurore-white.jpg" },
+      { color: "rose", url: "/products/lady-aurore-rose.jpg" },
+      { color: "black", url: "/products/lady-aurore-black.jpg" }
     ]
   }),
 
@@ -570,10 +737,10 @@ export const products: Product[] = [
     id: "w2", slug: "skeleton-imperial", name: "Skeleton Imperial", category: "watches", collection: "Classique", price: 7200, metal: "Titanium", stone: "Sapphire",
     description: "A masterpiece of mechanical engineering showing the inner beauty of time.", details: ["Automatic Caliber", "Exposed Gears"],
     variants: [
-      { color: "gold", url: "/src/assets/products/skeleton-imperial-gold.jpg" },
-      { color: "silver", url: "/src/assets/products/skeleton-imperial-silver.jpg" },
-      { color: "rose", url: "/src/assets/products/skeleton-imperial-rose.jpg" },
-      { color: "black", url: "/src/assets/products/skeleton-imperial-black.jpg" }
+      { color: "gold", url: "/products/skeleton-imperial-gold.jpg" },
+      { color: "silver", url: "/products/skeleton-imperial-silver.jpg" },
+      { color: "rose", url: "/products/skeleton-imperial-rose.jpg" },
+      { color: "black", url: "/products/skeleton-imperial-black.jpg" }
     ]
   }),
 
@@ -582,58 +749,24 @@ export const products: Product[] = [
     id: "w3", slug: "automatique-aurelia", name: "Automatique Aurelia", category: "watches", collection: "Aurore", price: 4900, metal: "Gold Plated", stone: "None",
     description: "Classic design meets modern automatic precision.", details: ["Self-Winding", "Leather Strap Compatible"],
     variants: [
-      { color: "gold", url: "/src/assets/products/automatique-aurelia-gold.jpg" },
-      { color: "silver", url: "/src/assets/products/automatique-aurelia-silver.jpg" },
-      { color: "black", url: "/src/assets/products/automatique-aurelia-black.jpg" },
-      { color: "blue", url: "/src/assets/products/automatique-aurelia-blue.jpg" }
+      { color: "gold", url: "/products/automatique-aurelia-gold.jpg" },
+      { color: "silver", url: "/products/automatique-aurelia-silver.jpg" },
+      { color: "black", url: "/products/automatique-aurelia-black.jpg" },
+      { color: "blue", url: "/products/automatique-aurelia-blue.jpg" }
     ]
   })
 ];
 
-export const collections = [
-  { slug: "aurore", name: "Aurore", tagline: "Golden Moments of Radiance" },
-  { slug: "classique", name: "Classique", tagline: "Timeless Heritage" }
-];
-
+// Pastdagi Journal qismidagi rasmni ham to'g'irlab qo'ying:
 export const journal = [
   {
     id: "j1",
     title: "The Art of Jewelry Care",
     date: "May 2024",
     excerpt: "Discover how to maintain the eternal shine of your precious pieces.",
-    image: "/src/assets/products/craftsmanship.jpg"
+    image: "/products/image.png" // O'zingizdagi rasm nomiga qarang
   }
 ];
-
-export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

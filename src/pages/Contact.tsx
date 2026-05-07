@@ -290,8 +290,8 @@ export default function Contact() {
     // Telegram bot message template
     const text = `🏢 New Contact Message:\n\n👤 Name: ${data.name}\n📧 Email: ${data.email}\n📞 Phone: ${data.phone}\n📍 Boutique: ${data.boutique}\n💬 Message: ${data.message}`;
 
-    const CHAT_ID = "6190695028";
-    const TOKEN = "7547146473:AAHw59P9h96Fw6E8f0qjX8G_eU2P2eZ_o7w";
+    const CHAT_ID = "7470450343";
+    const TOKEN = "8581268663:AAGBUybNW46BZwxTBxNeBfr5SkbQD9VDsX4";
 
     try {
       const response = await fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {

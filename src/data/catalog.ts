@@ -846,6 +846,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export type Product = {
   id: string;
   slug: string;
@@ -853,7 +874,7 @@ export type Product = {
   category: "rings" | "necklaces" | "earrings" | "bracelets" | "watches";
   collection: string;
   price: number;
-  currency: "$";
+  currency: "€";
   metal: string;
   stone: string;
   description: string;
@@ -871,97 +892,130 @@ const COLORS = {
   white:  { name: "Pure White",  hex: "#FFFFFF" },
 };
 
-// Koleksiyalar ro'yxati (Collections.tsx uchun shart)
 export const collections = [
-  {
-    id: "classique",
-    name: "Classique",
-    description: "Timeless elegance for every occasion",
-    image: "/products/briliant-uzukoltinrang.png"
+  { 
+    id: "classique", 
+    name: "Classique", 
+    description: "The heritage of Maison Aurélie, where timeless elegance meets exceptional craftsmanship.",
+    image: "/products/briliant-uzukoltinrang.png" 
   },
-  {
-    id: "aurore",
-    name: "Aurore",
-    description: "Modern designs inspired by nature",
-    image: "/products/oltin-braslet.png"
+  { 
+    id: "aurore", 
+    name: "Aurore", 
+    description: "A celebration of light and new beginnings, featuring modern designs for daily luxury.",
+    image: "/products/oltin-braslet.png" 
   }
 ];
 
-const createProduct = (
-  p: Omit<Product, "image" | "colors" | "currency"> & { 
-    variants: { color: keyof typeof COLORS; url: string }[] 
-  }
-): Product => {
+const createProduct = (p: Omit<Product, "image" | "colors" | "currency"> & { variants: { color: keyof typeof COLORS; url: string }[] }): Product => {
   const colors = p.variants.map((v) => ({
     name: COLORS[v.color].name,
     hex: COLORS[v.color].hex,
     image: v.url
   }));
-  return { ...p, currency: "$", image: colors[0].image, colors };
+  return { ...p, currency: "€", image: colors[0].image, colors };
 };
 
-export const getProduct = (slug: string) => {
-  return products.find((p) => p.slug === slug);
-};
+// Bu funksiya ProductPage.tsx uchun juda muhim
+export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
 
 export const products: Product[] = [
   // --- RINGS ---
   createProduct({
-    id: "r1", slug: "diamond-solitaire", name: "Diamond Solitaire Ring", category: "rings", collection: "Classique", price: 4500, metal: "18K Gold", stone: "Diamond",
-    description: "A timeless symbol of love and commitment.", details: ["GIA Certified", "High Polish"],
+    id: "r1",
+    slug: "diamond-solitaire",
+    name: "Diamond Solitaire Ring",
+    category: "rings",
+    collection: "Classique",
+    price: 4500,
+    metal: "18K Gold",
+    stone: "Diamond",
+    description: "A timeless symbol of love and commitment, featuring a brilliant-cut diamond.",
+    details: ["GIA Certified Diamond", "Hand-polished 18K Gold", "Signature internal engraving"],
     variants: [
       { color: "gold", url: "/products/briliant-uzukoltinrang.png" },
       { color: "silver", url: "/products/briliant-uzukkulurang.png" }
     ]
   }),
   createProduct({
-    id: "r2", slug: "minimalist-gold-band", name: "Minimalist Gold Band", category: "rings", collection: "Aurore", price: 900, metal: "14K Gold", stone: "None",
-    description: "Sleek and modern daily elegance.", details: ["Comfort Fit"],
-    variants: [{ color: "gold", url: "/products/minimalist-uzuk-odam-rang.png" }]
+    id: "r2",
+    slug: "minimalist-gold-band",
+    name: "Minimalist Gold Band",
+    category: "rings",
+    collection: "Aurore",
+    price: 900,
+    metal: "14K Gold",
+    stone: "None",
+    description: "Sleek and modern daily elegance for the contemporary individual.",
+    details: ["Solid 14K Gold", "Comfort-fit interior", "Stackable design"],
+    variants: [
+      { color: "gold", url: "/products/minimalist-uzuk-odam-rang.png" }
+    ]
   }),
 
   // --- EARRINGS ---
   createProduct({
-    id: "e1", slug: "purple-gem-earrings", name: "Purple Gem Earrings", category: "earrings", collection: "Aurore", price: 2100, metal: "Silver", stone: "Amethyst",
-    description: "Stunning violet stones set in polished silver.", details: ["Hand-set", "Nickel-free"],
-    variants: [{ color: "silver", url: "/products/zirak-binafsha.png" }]
+    id: "e1",
+    slug: "purple-gem-earrings",
+    name: "Purple Gem Earrings",
+    category: "earrings",
+    collection: "Aurore",
+    price: 2100,
+    metal: "Silver",
+    stone: "Amethyst",
+    description: "Stunning violet stones set in a delicate polished silver frame.",
+    details: ["Natural Amethyst", "Sterling Silver 925", "Butterfly clasp"],
+    variants: [
+      { color: "silver", url: "/products/zirak-binafsha.png" }
+    ]
   }),
   createProduct({
-    id: "e2", slug: "classic-gold-earrings", name: "Classic Gold Earrings", category: "earrings", collection: "Classique", price: 1500, metal: "14K Gold", stone: "None",
-    description: "Pure gold elegance for any occasion.", details: ["14K Certified"],
-    variants: [{ color: "gold", url: "/products/zirak-oltin.png" }]
+    id: "e2",
+    slug: "classic-gold-earrings",
+    name: "Classic Gold Earrings",
+    category: "earrings",
+    collection: "Classique",
+    price: 1500,
+    metal: "14K Gold",
+    stone: "None",
+    description: "Pure gold elegance that captures light with every movement.",
+    details: ["14K Yellow Gold", "Hand-crafted in Geneva", "Weight: 4.2g"],
+    variants: [
+      { color: "gold", url: "/products/zirak-oltin.png" }
+    ]
   }),
 
   // --- NECKLACES ---
   createProduct({
-    id: "n1", slug: "pearl-essence", name: "Pearl Essence Necklace", category: "necklaces", collection: "Classique", price: 1800, metal: "Gold", stone: "Pearl",
-    description: "Lustrous sea pearls with gold accents.", details: ["Natural Pearls"],
-    variants: [{ color: "white", url: "/products/marvarid-marjon-oq-rang.png" }]
+    id: "n1",
+    slug: "pearl-essence",
+    name: "Pearl Essence Necklace",
+    category: "necklaces",
+    collection: "Classique",
+    price: 1800,
+    metal: "Gold",
+    stone: "Pearl",
+    description: "Lustrous sea pearls hand-picked for their exceptional shine.",
+    details: ["AAA Quality Pearls", "18K Gold Chain", "Adjustable length: 40-45cm"],
+    variants: [
+      { color: "white", url: "/products/marvarid-marjon-oq-rang.png" }
+    ]
   }),
 
   // --- BRACELETS ---
   createProduct({
-    id: "b1", slug: "luxury-gold-bangle", name: "Luxury Gold Bangle", category: "bracelets", collection: "Aurore", price: 3200, metal: "18K Gold", stone: "Diamond",
-    description: "Intricate patterns in solid 18K gold.", details: ["Security Clasp"],
-    variants: [{ color: "gold", url: "/products/oltin-braslet.png" }]
-  }),
-
-  // --- WATCHES ---
-  createProduct({
-    id: "w1", slug: "lady-aurore-elite", name: "Lady Aurora Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Steel", stone: "Sapphire",
-    description: "Swiss movement luxury timepiece.", details: ["Water Resistant", "Sapphire Glass"],
+    id: "b1",
+    slug: "luxury-gold-bangle",
+    name: "Luxury Gold Bangle",
+    category: "bracelets",
+    collection: "Aurore",
+    price: 3200,
+    metal: "18K Gold",
+    stone: "Diamond",
+    description: "Intricate patterns in solid 18K gold, accented with hidden diamonds.",
+    details: ["Solid 18K Yellow Gold", "Hidden security clasp", "Diamond weight: 0.15ct"],
     variants: [
-      { color: "gold", url: "/products/lady-aurore-gold.jpg" },
-      { color: "silver", url: "/products/lady-aurore-white.jpg" },
-      { color: "black", url: "/products/lady-aurore-black.jpg" }
-    ]
-  }),
-  createProduct({
-    id: "w2", slug: "skeleton-imperial", name: "Skeleton Imperial", category: "watches", collection: "Classique", price: 7200, metal: "Titanium", stone: "Sapphire",
-    description: "Masterpiece of mechanical engineering.", details: ["Automatic", "Exposed Gears"],
-    variants: [
-      { color: "gold", url: "/products/skeleton-imperial-gold.jpg" },
-      { color: "silver", url: "/products/skeleton-imperial-silver.jpg" }
+      { color: "gold", url: "/products/oltin-braslet.png" }
     ]
   })
 ];
@@ -971,10 +1025,179 @@ export const journal = [
     id: "j1",
     title: "The Art of Jewelry Care",
     date: "May 2024",
-    excerpt: "Discover how to maintain the eternal shine.",
+    excerpt: "Discover our expert secrets for maintaining the lifelong brilliance of your Maison Aurélie pieces.",
     image: "/products/image.png"
   }
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export type Product = {
+//   id: string;
+//   slug: string;
+//   name: string;
+//   category: "rings" | "necklaces" | "earrings" | "bracelets" | "watches";
+//   collection: string;
+//   price: number;
+//   currency: "$";
+//   metal: string;
+//   stone: string;
+//   description: string;
+//   details: string[];
+//   image: string;
+//   colors: { name: string; hex: string; image: string }[];
+// };
+
+// const COLORS = {
+//   gold:   { name: "Gold",        hex: "#D4AF37" },
+//   silver: { name: "Silver",      hex: "#C0C0C0" },
+//   rose:   { name: "Rose Gold",   hex: "#E5B09E" },
+//   black:  { name: "Black",       hex: "#000000" },
+//   blue:   { name: "Deep Blue",   hex: "#00008B" },
+//   white:  { name: "Pure White",  hex: "#FFFFFF" },
+// };
+
+// // Koleksiyalar ro'yxati (Collections.tsx uchun shart)
+// export const collections = [
+//   {
+//     id: "classique",
+//     name: "Classique",
+//     description: "Timeless elegance for every occasion",
+//     image: "/products/briliant-uzukoltinrang.png"
+//   },
+//   {
+//     id: "aurore",
+//     name: "Aurore",
+//     description: "Modern designs inspired by nature",
+//     image: "/products/oltin-braslet.png"
+//   }
+// ];
+
+// const createProduct = (
+//   p: Omit<Product, "image" | "colors" | "currency"> & { 
+//     variants: { color: keyof typeof COLORS; url: string }[] 
+//   }
+// ): Product => {
+//   const colors = p.variants.map((v) => ({
+//     name: COLORS[v.color].name,
+//     hex: COLORS[v.color].hex,
+//     image: v.url
+//   }));
+//   return { ...p, currency: "$", image: colors[0].image, colors };
+// };
+
+// export const getProduct = (slug: string) => {
+//   return products.find((p) => p.slug === slug);
+// };
+
+// export const products: Product[] = [
+//   // --- RINGS ---
+//   createProduct({
+//     id: "r1", slug: "diamond-solitaire", name: "Diamond Solitaire Ring", category: "rings", collection: "Classique", price: 4500, metal: "18K Gold", stone: "Diamond",
+//     description: "A timeless symbol of love and commitment.", details: ["GIA Certified", "High Polish"],
+//     variants: [
+//       { color: "gold", url: "/products/briliant-uzukoltinrang.png" },
+//       { color: "silver", url: "/products/briliant-uzukkulurang.png" }
+//     ]
+//   }),
+//   createProduct({
+//     id: "r2", slug: "minimalist-gold-band", name: "Minimalist Gold Band", category: "rings", collection: "Aurore", price: 900, metal: "14K Gold", stone: "None",
+//     description: "Sleek and modern daily elegance.", details: ["Comfort Fit"],
+//     variants: [{ color: "gold", url: "/products/minimalist-uzuk-odam-rang.png" }]
+//   }),
+
+//   // --- EARRINGS ---
+//   createProduct({
+//     id: "e1", slug: "purple-gem-earrings", name: "Purple Gem Earrings", category: "earrings", collection: "Aurore", price: 2100, metal: "Silver", stone: "Amethyst",
+//     description: "Stunning violet stones set in polished silver.", details: ["Hand-set", "Nickel-free"],
+//     variants: [{ color: "silver", url: "/products/zirak-binafsha.png" }]
+//   }),
+//   createProduct({
+//     id: "e2", slug: "classic-gold-earrings", name: "Classic Gold Earrings", category: "earrings", collection: "Classique", price: 1500, metal: "14K Gold", stone: "None",
+//     description: "Pure gold elegance for any occasion.", details: ["14K Certified"],
+//     variants: [{ color: "gold", url: "/products/zirak-oltin.png" }]
+//   }),
+
+//   // --- NECKLACES ---
+//   createProduct({
+//     id: "n1", slug: "pearl-essence", name: "Pearl Essence Necklace", category: "necklaces", collection: "Classique", price: 1800, metal: "Gold", stone: "Pearl",
+//     description: "Lustrous sea pearls with gold accents.", details: ["Natural Pearls"],
+//     variants: [{ color: "white", url: "/products/marvarid-marjon-oq-rang.png" }]
+//   }),
+
+//   // --- BRACELETS ---
+//   createProduct({
+//     id: "b1", slug: "luxury-gold-bangle", name: "Luxury Gold Bangle", category: "bracelets", collection: "Aurore", price: 3200, metal: "18K Gold", stone: "Diamond",
+//     description: "Intricate patterns in solid 18K gold.", details: ["Security Clasp"],
+//     variants: [{ color: "gold", url: "/products/oltin-braslet.png" }]
+//   }),
+
+//   // --- WATCHES ---
+//   createProduct({
+//     id: "w1", slug: "lady-aurore-elite", name: "Lady Aurora Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Steel", stone: "Sapphire",
+//     description: "Swiss movement luxury timepiece.", details: ["Water Resistant", "Sapphire Glass"],
+//     variants: [
+//       { color: "gold", url: "/products/lady-aurore-gold.jpg" },
+//       { color: "silver", url: "/products/lady-aurore-white.jpg" },
+//       { color: "black", url: "/products/lady-aurore-black.jpg" }
+//     ]
+//   }),
+//   createProduct({
+//     id: "w2", slug: "skeleton-imperial", name: "Skeleton Imperial", category: "watches", collection: "Classique", price: 7200, metal: "Titanium", stone: "Sapphire",
+//     description: "Masterpiece of mechanical engineering.", details: ["Automatic", "Exposed Gears"],
+//     variants: [
+//       { color: "gold", url: "/products/skeleton-imperial-gold.jpg" },
+//       { color: "silver", url: "/products/skeleton-imperial-silver.jpg" }
+//     ]
+//   })
+// ];
+
+// export const journal = [
+//   {
+//     id: "j1",
+//     title: "The Art of Jewelry Care",
+//     date: "May 2024",
+//     excerpt: "Discover how to maintain the eternal shine.",
+//     image: "/products/image.png"
+//   }
+// ];
 
 
 

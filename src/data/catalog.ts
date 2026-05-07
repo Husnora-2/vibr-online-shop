@@ -818,6 +818,34 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export type Product = {
   id: string;
   slug: string;
@@ -843,6 +871,22 @@ const COLORS = {
   white:  { name: "Pure White",  hex: "#FFFFFF" },
 };
 
+// Koleksiyalar ro'yxati (Collections.tsx uchun shart)
+export const collections = [
+  {
+    id: "classique",
+    name: "Classique",
+    description: "Timeless elegance for every occasion",
+    image: "/products/briliant-uzukoltinrang.png"
+  },
+  {
+    id: "aurore",
+    name: "Aurore",
+    description: "Modern designs inspired by nature",
+    image: "/products/oltin-braslet.png"
+  }
+];
+
 const createProduct = (
   p: Omit<Product, "image" | "colors" | "currency"> & { 
     variants: { color: keyof typeof COLORS; url: string }[] 
@@ -856,8 +900,6 @@ const createProduct = (
   return { ...p, currency: "$", image: colors[0].image, colors };
 };
 
-// --- BU FUNKSIYA MUHIM! ---
-// ProductPage.tsx mana shu funksiyani qidirmoqda.
 export const getProduct = (slug: string) => {
   return products.find((p) => p.slug === slug);
 };
@@ -906,7 +948,7 @@ export const products: Product[] = [
 
   // --- WATCHES ---
   createProduct({
-    id: "w1", slug: "lady-aurore-elite", name: "Lady Aurore Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Steel", stone: "Sapphire",
+    id: "w1", slug: "lady-aurore-elite", name: "Lady Aurora Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Steel", stone: "Sapphire",
     description: "Swiss movement luxury timepiece.", details: ["Water Resistant", "Sapphire Glass"],
     variants: [
       { color: "gold", url: "/products/lady-aurore-gold.jpg" },
@@ -933,7 +975,6 @@ export const journal = [
     image: "/products/image.png"
   }
 ];
-
 
 
 

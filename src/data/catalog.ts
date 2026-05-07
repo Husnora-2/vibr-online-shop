@@ -818,7 +818,6 @@
 
 
 
-
 export type Product = {
   id: string;
   slug: string;
@@ -857,8 +856,14 @@ const createProduct = (
   return { ...p, currency: "$", image: colors[0].image, colors };
 };
 
+// --- BU FUNKSIYA MUHIM! ---
+// ProductPage.tsx mana shu funksiyani qidirmoqda.
+export const getProduct = (slug: string) => {
+  return products.find((p) => p.slug === slug);
+};
+
 export const products: Product[] = [
-  // --- RINGS (UZUKLAR) ---
+  // --- RINGS ---
   createProduct({
     id: "r1", slug: "diamond-solitaire", name: "Diamond Solitaire Ring", category: "rings", collection: "Classique", price: 4500, metal: "18K Gold", stone: "Diamond",
     description: "A timeless symbol of love and commitment.", details: ["GIA Certified", "High Polish"],
@@ -870,10 +875,10 @@ export const products: Product[] = [
   createProduct({
     id: "r2", slug: "minimalist-gold-band", name: "Minimalist Gold Band", category: "rings", collection: "Aurore", price: 900, metal: "14K Gold", stone: "None",
     description: "Sleek and modern daily elegance.", details: ["Comfort Fit"],
-    variants: [{ color: "gold", url: "/products/minimalist-uzuk.png" }]
+    variants: [{ color: "gold", url: "/products/minimalist-uzuk-odam-rang.png" }]
   }),
 
-  // --- EARRINGS (ZIRAKLAR) ---
+  // --- EARRINGS ---
   createProduct({
     id: "e1", slug: "purple-gem-earrings", name: "Purple Gem Earrings", category: "earrings", collection: "Aurore", price: 2100, metal: "Silver", stone: "Amethyst",
     description: "Stunning violet stones set in polished silver.", details: ["Hand-set", "Nickel-free"],
@@ -885,21 +890,21 @@ export const products: Product[] = [
     variants: [{ color: "gold", url: "/products/zirak-oltin.png" }]
   }),
 
-  // --- NECKLACES (MARJONLAR) ---
+  // --- NECKLACES ---
   createProduct({
     id: "n1", slug: "pearl-essence", name: "Pearl Essence Necklace", category: "necklaces", collection: "Classique", price: 1800, metal: "Gold", stone: "Pearl",
     description: "Lustrous sea pearls with gold accents.", details: ["Natural Pearls"],
-    variants: [{ color: "white", url: "/products/marvarid-marjon.png" }]
+    variants: [{ color: "white", url: "/products/marvarid-marjon-oq-rang.png" }]
   }),
 
-  // --- BRACELETS (BRASLETLAR) ---
+  // --- BRACELETS ---
   createProduct({
     id: "b1", slug: "luxury-gold-bangle", name: "Luxury Gold Bangle", category: "bracelets", collection: "Aurore", price: 3200, metal: "18K Gold", stone: "Diamond",
     description: "Intricate patterns in solid 18K gold.", details: ["Security Clasp"],
     variants: [{ color: "gold", url: "/products/oltin-braslet.png" }]
   }),
 
-  // --- WATCHES (SOATLAR) ---
+  // --- WATCHES ---
   createProduct({
     id: "w1", slug: "lady-aurore-elite", name: "Lady Aurore Elite", category: "watches", collection: "Aurore", price: 5800, metal: "Steel", stone: "Sapphire",
     description: "Swiss movement luxury timepiece.", details: ["Water Resistant", "Sapphire Glass"],
@@ -928,12 +933,6 @@ export const journal = [
     image: "/products/image.png"
   }
 ];
-
-
-
-
-
-
 
 
 
